@@ -9,7 +9,7 @@ Be creative and use multiple parameters from the API documentation to earn a top
 ## Directions URL
 
 ```
-https://YourDirectionsApiURLGoesHere
+https://[YourDirectionsApiURLGoesHere](https://maps.googleapis.com/maps/api/directions/json?origin=Kohima+India&destination=IndiaGate+NewDelhi&mode=walking&avoid=tolls%7Chighways%7Cferries&transit_mode=train%7CBus&&waypoints=Guwahati+Assam%7Cvia:Patna+Bihar&key=AIzaSyCM-WWHYHIKY-do4kquMy9Z4wQaQx51AuE)
 ```
 
 Copy/paste the JSON results and save them into the empty file ```mydirections.json``` in this repository
