@@ -1,7 +1,7 @@
 function initMap() {
   const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 5,
-    center: { lat: 50.573, lng: -86.637 }, 
+    center: { lat: 43.440863, lng: -79.919556 }, 
   });
   // Create an array of alphabetical characters used to label the markers.
   const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -22,7 +22,6 @@ function initMap() {
   });
 }
 const locations = [ 
-
 { lat: 49.758123, lng: -92.65349}
 { lat: 45.442046, lng: -78.820583},
 { lat: 48.17812017, lng: -90.22694426},
