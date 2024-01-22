@@ -13,13 +13,8 @@ html,body {
   padding: 0;
 }
 </style>
-</head>
-<body>
-    <div id="map"></div>
-    <script defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM-WWHYHIKY-do4kquMy9Z4wQaQx51AuE&callback=initmap">
-    </script>
-<script>let map;
+<script>
+  let map;
 
   async function initMap() {
     const { Map } = await google.maps.importLibrary("maps");
@@ -31,6 +26,11 @@ html,body {
   }
 
   </script>
-    
+</head>
+<body>
+    <div id="map"></div>
+    <script defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM-WWHYHIKY-do4kquMy9Z4wQaQx51AuE&callback=initmap">
+    </script>   
 </body>
 </html>
