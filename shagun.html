@@ -1,0 +1,120 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Visiting Golf Course,Dubai</title>
+    <style>
+      html, body, #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.28/esri/themes/light/main.css">
+    <script src="https://js.arcgis.com/4.28/"></script>
+    <script>
+  
+    require([
+      "esri/config",
+      "esri/Map",
+      "esri/views/MapView",
+      "esri/Graphic",
+      "esri/layers/GraphicsLayer",
+      "esri/widgets/ScaleBar",
+      "esri/widgets/Search",
+      "esri/PopupTemplate"
+    ], function(esriConfig, Map, MapView, Graphic, GraphicsLayer, ScaleBar, Search,PopupTemplate) {
+  
+      esriConfig.apiKey = "AAPK59a4225559cb4259a021352c45b03323yeqy5fzdJX1Czyz3kEEV-1xcs3MpDPpRI6s5tO3oE1TkcmerAOqLOdQn0GerMrwS";
+ 
+      // source: https://developers.arcgis.com/javascript/latest/sample-code,the development of an idea of creating a story is owned by Kabir. 
+      const map = new Map({
+        basemap: "arcgis-imagery" // basemap styles modified
+      });
+  
+      const view = new MapView({
+        map: map,
+        center: [76.93493793796748,30.11052445204376], //Longitude, latitude (modified)
+        zoom: 11, //modified
+        container: "viewDiv"
+      });
+  
+      const graphicsLayer = new GraphicsLayer();
+      map.add(graphicsLayer);
+  
+      const multipoint = {
+        type: "multipoint", //modified from default
+        points: [
+          [ 76.88949, 29.96808], // Longitude, latitude (modified)
+          [ 76.97553, 30.30540]
+        //   [-79.38698172047437,43.64271362349561],
+        //   [-79.3614504477359,43.62631222891241]
+        ]
+      };
+  
+      const simpleMarkerSymbol = {
+        type: "simple-marker",
+        color: [255,0,255], // magenta(changed from default)
+        outline: {
+          color: [34,139,34], // green (changed from default)
+          width: 1 // Changed from default settings
+        }
+      };
+  
+      const multipointGraphic = new Graphic({
+      geometry: multipoint,
+      symbol: simpleMarkerSymbol,
+      popupTemplate: new PopupTemplate({
+        title: "My Journey",
+        content: "Kurukshetra to Shah"
+      })
+    });
+  
+      graphicsLayer.add(multipointGraphic);
+      const scaleBar = new ScaleBar({
+        view: view,
+        unit: "metric"
+      });
+      const myUI = view.ui; // This is a property of the MapView object 
+      myUI.add(scaleBar, {   //ui= user interface
+        position: "bottom-left" // THIS ADDS TO WIDGET TO BOTTOM LEFT CORNER
+      });
+  
+ const polyline = {
+    type: "polyline",
+    paths: [
+    [ 76.88949, 29.96808], // Longitude, latitude (modified)
+    [ 76.97553, 30.30540]
+    // [-79.386981,43.642713],
+    // [-79.3614504477359,43.62631222891241]
+    ]
+ };
+ const simpleLineSymbol = {
+    type: "simple-line",
+    color: [255,255,153], // magenta modified
+    width: 3 // modified
+ };
+
+ const polylineGraphic = new Graphic({
+    geometry: polyline,
+    symbol: simpleLineSymbol
+ });
+ graphicsLayer.add(polylineGraphic);
+
+ const searchWidget = new Search({
+        view: view
+      });
+
+      // Adding the Search widget to the top right corner of the view
+      view.ui.add(searchWidget, {
+        position: "top-right"
+      });
+ });
+    </script>
+  </head>
+  <body>
+    <div id="viewDiv"></div>
+  </body>
+  </html>
+  
